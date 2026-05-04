@@ -10,6 +10,8 @@ public class CharactersMapper implements TextColorSchema {
 
     @Override
     public char convert(int color) {
-        return schema[255 / schema[color]];
+        int index = color / (255 / schema.length);
+        index = Math.min(index, schema.length - 1);
+        return schema[index];
     }
 }
